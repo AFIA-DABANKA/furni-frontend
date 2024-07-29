@@ -15,6 +15,13 @@ export const getSession=async ()=>{
     return JSON.parse(JSON.stringify(session));
 }
 
+export const logout = async()=>{
+    const session = await getIronSession(cookies(),{password:'ab5b9722-0447-4749-b357-1a2472324dd7',cookieName:'farad-session',cookieOptions:{httpOnly:true}});
+
+   session.destroy();
+}
+
+
 export const login = async(email,password)=>{
     const session = await getIronSession(cookies(),{password:'ab5b9722-0447-4749-b357-1a2472324dd7',cookieName:'farad-session',cookieOptions:{httpOnly:true}});
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { getMyShops } from "../requests";
+import { getMyShops, logout } from "../requests";
 
 export default function AppHeader(){
   const [myShops, setMyShops] = useState([]);
@@ -31,6 +31,10 @@ export default function AppHeader(){
         
         {myShops.length>0&&<li><a className="nav-link" href="/my-shops">My Shops</a></li>}
         <li><a className="nav-link" href="/shop/create">Create Shop</a></li>
+        <li><a className="nav-link" onClick={async ()=> {
+          await  logout()
+        }}>log out</a></li>
+
       </ul>
 
       <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
